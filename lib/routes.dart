@@ -5,7 +5,6 @@ import 'package:service_project3/screens/auth_screens/otp_verification.dart';
 import 'package:service_project3/screens/auth_screens/signup_screen.dart';
 import 'package:service_project3/screens/auth_screens/verify_number.dart';
 import 'package:service_project3/screens/home_screen/home.dart';
-
 final AppRoutes = [
 
   GetPage(name: "/onboarding", page: ()=> const OnboardingScreen()),

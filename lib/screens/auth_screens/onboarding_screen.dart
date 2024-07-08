@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,202 +34,231 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("assets/images/abc.png"),
-            SizedBox(height: 80),
-            Container(
-              width: 220,
-              height: 40,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: TextButton(
-                onPressed: () {
-                  if (_isSwitched) {
-                    // Add your Google sign-in logic here
-                  } else {
-                    showTermsAgreementSnackbar(context);
-                  }
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/google.png', // Ensure you have the Google logo in your assets folder
-                      height: 24,
-                      width: 24,
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      'Sign in with Google',
-                      style: TextStyle(color: Colors.black),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("assets/images/abc.png"),
+              SizedBox(height: 80),
+              Container(
+                width: 270,
+                height: 40,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
                     ),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              width: 220,
-              height: 40,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.white.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                child: TextButton(
+                  onPressed: () {
+                    if (_isSwitched) {
+                      // Add your Google sign-in logic here
+                    } else {
+                      showTermsAgreementSnackbar(context);
+                    }
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
-                ],
-              ),
-              child: TextButton(
-                onPressed: () {
-                  if (_isSwitched) {
-                    // Add your Facebook login logic here
-                  } else {
-                    showTermsAgreementSnackbar(context);
-                  }
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Color(0xFF1A52C4), // Facebook blue color
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/google.png', // Ensure you have the Google logo in your assets folder
+                        height: 30,
+                        width: 30,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(width: 13),
+                      Text(
+                        'Sign in with Google',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/fb.png', // Ensure you have the Facebook logo in your assets folder
-                      height: 24,
-                      width: 24,
-                    ),
-                    const SizedBox(width: 8),
-                    const Text(
-                      'Login with Facebook',
-                      style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 270,
+                height: 40,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
                     ),
                   ],
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: IconButton(
-                      icon: const ImageIcon(
-                        AssetImage('assets/images/google.png'), // Replace with your image asset path
-                        size: 40,
-                        color: Colors.amberAccent,
-                      ),
-                      onPressed: () {
-                        if (_isSwitched) {
-                          Get.to(const Inputnumber());
-                        } else {
-                          showTermsAgreementSnackbar(context);
-                        }
-                      },
+                child: TextButton(
+                  onPressed: () {
+                    if (_isSwitched) {
+                      // Add your Facebook login logic here
+                    } else {
+                      showTermsAgreementSnackbar(context);
+                    }
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color(0xff1877F2), // Facebook blue color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  const SizedBox(width: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: IconButton(
-                      icon: const ImageIcon(
-                        AssetImage('assets/images/google.png'), // Replace with your image asset path
-                        size: 40,
-                        color: Colors.amber,
-                      ),
-                      onPressed: () {
-                        if (_isSwitched) {
-                          // Define the action on button press
-                        } else {
-                          showTermsAgreementSnackbar(context);
-                        }
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Switch(
-                    value: _isSwitched,
-                    onChanged: (newValue) {
-                      setState(() {
-                        _isSwitched = newValue;
-                      });
-                    },
-                  ),
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Stack(
                         children: [
-                          const TextSpan(
-                            text: 'By continuing, you agree to the ',
-                            style: TextStyle(color: Colors.grey,fontSize: 15),
+                          Container(
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                           ),
-                          TextSpan(
-                            text: 'Terms of \nService',
-                            style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontSize: 17),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                _launchUrl(termsOfServiceUrl);
-                              },
-                          ),
-                          const TextSpan(
-                            text: ' and',
-                            style: TextStyle(color: Colors.black,fontSize: 15),
-                          ),
-                          TextSpan(
-                            text: 'Privacy Policy',
-                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontSize: 17),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                _launchUrl(privacyPolicyUrl);
-                              },
+                          Positioned(
+                            top: 3,
+                            left: 1,
+                            child: Center(
+                              child: Image.asset(
+                                'assets/images/5296500_fb_social media_facebook_facebook logo_social network_icon.png',
+                                // Ensure you have the Facebook logo in your assets folder
+                                height: 23,
+                                width: 23,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                    ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Login with Facebook',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.to(Inputnumber());
+                      },
+                      child: Container(
+                        width: 38,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          // borderRadius: BorderRadius.circular(30),
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        child: IconButton(
+                          icon: const ImageIcon(
+                            AssetImage('assets/images/mobile.png'), // Replace with your image asset path
+                            // size: 1,
+                            color: Colors.blue,
+                          ),
+                          onPressed: () {
+                            if (_isSwitched) {
+                              Get.to(const Inputnumber());
+                            } else {
+                              showTermsAgreementSnackbar(context);
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      width: 38,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        // borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: IconButton(
+                        icon: const ImageIcon(
+                          AssetImage('assets/images/snapchat.png'), // Replace with your image asset path
+                          size: 30,
+                          color: Color(0xffECE000),
+                        ),
+                        onPressed: () {
+                          if (_isSwitched) {
+                            // Define the action on button press
+                          } else {
+                            showTermsAgreementSnackbar(context);
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Switch(
+                      value: _isSwitched,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _isSwitched = newValue;
+                        });
+                      },
+                    ),
+                    Expanded(
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'By continuing, you agree to the ',
+                              style: TextStyle(color: Colors.grey, fontSize: 15),
+                            ),
+                            TextSpan(
+                              text: 'Terms of \nService',
+                              style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  _launchUrl(termsOfServiceUrl);
+                                },
+                            ),
+                            const TextSpan(
+                              text: ' and',
+                              style: TextStyle(color: Colors.black, fontSize: 15),
+                            ),
+                            TextSpan(
+                              text: 'Privacy Policy',
+                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  _launchUrl(privacyPolicyUrl);
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
